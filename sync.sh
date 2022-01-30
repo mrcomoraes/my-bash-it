@@ -16,6 +16,7 @@ while true; do
   echo -e "    o) Outro diretório\n"
 
   read -rp "Escolha uma opção: " answer_choose
+  echo -e ""
 
   case ${answer_choose,,} in
     1)
@@ -30,7 +31,7 @@ while true; do
 
     o)
       read -rp "Digite o caminho do diretório: " answer_dir
-      cd "${answer_dir}" || { echo "Diretório não encontrado"; exit 1; }
+      cd "${answer_dir}" 2> /dev/null || { echo "Diretório não encontrado"; exit 1; }
       break
     ;;
   esac
@@ -48,9 +49,11 @@ case $1 in
     rsync -vur --exclude=example.bash $dir_bash_it/custom/ custom/
     rsync -vu $dir_bash_it/completion/custom.completion.bash custom.completion.bash
     rsync -vu $dir_bash_it/aliases/custom.aliases.bash custom.aliases.bash
-    git add -A
-    read -rp "Digite aqui a descrição do commit: " answer_commit
+    echo -e "\nExecutando git add..."
+    git add -Av
+    echo -e ""
+    read -rp "Digite aqui a descrição do commit (ou Ctrl+C para cancelar): " answer_commit
     git commit -m "$answer_commit"
-    git push origin main
+    git push
   ;;
 esac
