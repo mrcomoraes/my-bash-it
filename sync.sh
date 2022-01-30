@@ -49,6 +49,10 @@ case $1 in
     rsync -vur --exclude=example.bash $dir_bash_it/custom/ custom/
     rsync -vu $dir_bash_it/completion/custom.completion.bash custom.completion.bash
     rsync -vu $dir_bash_it/aliases/custom.aliases.bash custom.aliases.bash
+    echo -e ""; read -rp "Deseja continuar? (S/n): " answer_confirm
+    if [[ "${answer_confirm,,}" == "n" ]]; then
+      exit 1
+    fi
     echo -e "\nExecutando git add..."
     git add -Av
     echo -e ""
