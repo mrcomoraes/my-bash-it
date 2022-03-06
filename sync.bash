@@ -43,14 +43,14 @@ case $1 in
     rsync -vur --exclude=example.bash custom/ $dir_bash_it/custom/
     rsync -vu custom.completion.bash $dir_bash_it/completion/custom.completion.bash
     rsync -vu custom.aliases.bash $dir_bash_it/aliases/custom.aliases.bash
-    rsync -vu profiles/ $dir_bash_it/profiles/
+    rsync -vur profiles/ $dir_bash_it/profiles/
   ;;
 
   upload)
     rsync -vur --exclude=example.bash $dir_bash_it/custom/ custom/
     rsync -vu $dir_bash_it/completion/custom.completion.bash custom.completion.bash
     rsync -vu $dir_bash_it/aliases/custom.aliases.bash custom.aliases.bash
-    rsync -vu $dir_bash_it/profiles/ profiles/
+    rsync -vur --exclude=default.bash_it $dir_bash_it/profiles/ profiles/
     echo -e ""; read -rp "Deseja continuar? (S/n): " answer_confirm
     if [[ "${answer_confirm,,}" == "n" ]]; then
       exit 1
