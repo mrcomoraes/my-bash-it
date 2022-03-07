@@ -44,7 +44,7 @@ case $1 in
     rsync -vu custom.completion.bash $dir_bash_it/completion/custom.completion.bash
     rsync -vu custom.aliases.bash $dir_bash_it/aliases/custom.aliases.bash
     rsync -vur profiles/ $dir_bash_it/profiles/
-    echo -e "Não esqueça de configurar seu profile do Bash-it!"
+    echo -e '\e[32;7m Não esqueça de configurar seu profile do Bash-it!\e[m'
   ;;
 
   upload)
