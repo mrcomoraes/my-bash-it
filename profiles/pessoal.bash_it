@@ -2,6 +2,7 @@
 
 # plugins
 plugins base
+plugins history-eternal
 completion aliases
 completion bash-it
 completion kubectl
