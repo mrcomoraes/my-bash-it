@@ -31,7 +31,10 @@ function via_vpn {
   esac
 
   sudo ip route add 10.0.0.0/8 via 192.168.10.91 dev "$INTERFACE"
-  sudo systemd-resolve -i "$INTERFACE" --set-dns=10.128.8.75 --set-dns=10.128.8.76
+
+  if [ "$2" != "casa" ]; then
+    sudo systemd-resolve -i "$INTERFACE" --set-dns=10.128.8.75 --set-dns=10.128.8.76
+  fi
 }
 
 #function via_synckubeconfig() {
