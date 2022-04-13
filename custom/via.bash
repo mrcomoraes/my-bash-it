@@ -32,7 +32,7 @@ function via_vpn {
 
   sudo ip route add 10.0.0.0/8 via 192.168.10.91 dev "$INTERFACE"
 
-  if [ "$2" != "casa" ]; then
+  if [ "$2" == "fora" ]; then
     sudo systemd-resolve -i "$INTERFACE" --set-dns=10.128.8.75 --set-dns=10.128.8.76
   fi
 }
