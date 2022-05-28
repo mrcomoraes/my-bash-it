@@ -2,11 +2,7 @@ function via_ocp3_exibir_hpa() {
   if [ -z "$1" ]
   then
     echo "Está faltando parâmetro do namespace."
-  else
-    echo "Monitoramento HPA - $1"
-    oc get hpa -n $1 --no-headers | awk -v date="$(date "+%d/%m/%Y - %T")" '{ if($6>$4) print date,"\tMinimo: ",$4,"\tMaximo: ",$5,"\tAtual: "$6,"\tPorcentagem: ",$3,"\tDeployment: ",$1}'
-  fi
-  if [ "$2" == "-m" ]
+  elif [ "$2" == "-m" ]
   then
     while true
     do
@@ -15,6 +11,9 @@ function via_ocp3_exibir_hpa() {
       echo -e "\n"
       sleep 30
     done
+  else
+    echo "Monitoramento HPA - $1"
+    oc get hpa -n $1 --no-headers | awk -v date="$(date "+%d/%m/%Y - %T")" '{ if($6>$4) print date,"\tMinimo: ",$4,"\tMaximo: ",$5,"\tAtual: "$6,"\tPorcentagem: ",$3,"\tDeployment: ",$1}'
   fi
 }
 

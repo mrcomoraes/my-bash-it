@@ -6,6 +6,7 @@ eval "$(pyenv init --path)"
 # History
 export HISTCONTROL=ignoredups
 #export HISTSIZE=20000
+export PROMPT_COMMAND='history -a'
 
 ### Kubernetes
 export KUBE_PS1_SYMBOL_ENABLE=false
