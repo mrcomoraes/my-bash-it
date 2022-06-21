@@ -6,7 +6,7 @@ plugins history-eternal
 completion aliases
 completion bash-it
 completion kubectl
+completion openshift
 completion ssh
 completion system
-completion vault
 aliases general

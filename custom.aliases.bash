@@ -27,5 +27,4 @@ alias kns=kubens
 
 # Alias para docker
 alias netshoot='docker run --rm -it --name netshoot nicolaka/netshoot'
-alias toolbox='docker exec -it toolbox bash'
 
