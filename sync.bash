@@ -9,32 +9,16 @@ if [[ "$1" != "download" && "$1" != "upload" ]]; then
   exit 1
 fi
 
-while true; do
-  echo -e "Escolha o caminho do diretório:\n"
-  echo -e "    1) ~/Labs/git/my-bash-it"
-  echo -e "    2) ~/git/my-bash-it"
-  echo -e "    o) Outro diretório\n"
-
-  read -rp "Escolha uma opção: " answer_choose
-  echo -e ""
-
-  case ${answer_choose,,} in
-    1)
-      cd ~/Labs/git/my-bash-it 2> /dev/null || { echo "Diretório não encontrado"; exit 1; }
-      break
-    ;;
-
-    2)
-      cd ~/git/my-bash-it 2> /dev/null || { echo "Diretório não encontrado"; exit 1; } 
-      break
-    ;;
-
-    o)
-      read -rp "Digite o caminho do diretório: " answer_dir
-      cd "${answer_dir}" 2> /dev/null || { echo "Diretório não encontrado"; exit 1; }
-      break
-    ;;
-  esac
+PS3=$'\nEscolha uma opção: '
+select dir in ~/Labs/git/my-bash-it ~/git/my-bash-it Outro; do
+  [ -z $dir ] && exit 1
+  if [ $dir == "Outro" ]; then
+    read -rp "Digite o caminho do diretório: " answer_dir
+    cd "${answer_dir}" 2> /dev/null || { echo "Diretório não encontrado"; exit 1; }
+    break
+  fi
+  cd $dir 2> /dev/null || { echo "Diretório não encontrado"; exit 1; }
+  break
 done
 
 case $1 in
@@ -54,7 +38,7 @@ case $1 in
     rsync -vurtp --exclude=default.bash_it $dir_bash_it/profiles/ profiles/
     echo -e ""; read -rp "Deseja continuar? (S/n): " answer_confirm
     if [[ "${answer_confirm,,}" == "n" ]]; then
-      exit 1
+      exit 0
     fi
     echo -e "\nExecutando git add..."
     git add -Av
@@ -64,3 +48,4 @@ case $1 in
     git push
   ;;
 esac
+
