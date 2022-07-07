@@ -9,6 +9,8 @@ if [[ "$1" != "download" && "$1" != "upload" ]]; then
   exit 1
 fi
 
+echo -e "Escolha o caminho do diretório:\n"
+
 PS3=$'\nEscolha uma opção: '
 select dir in ~/Labs/git/my-bash-it ~/git/my-bash-it Outro; do
   [ -z $dir ] && exit 1
