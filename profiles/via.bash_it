@@ -5,6 +5,7 @@ plugins base
 plugins history-eternal
 completion aliases
 completion bash-it
+completion helm
 completion kubectl
 completion openshift
 completion ssh
