@@ -25,6 +25,8 @@ complete -F __start_kubectl k
 alias kctx=kubectx
 alias kns=kubens
 
-# Alias para docker
+# Alias para docker/podman
 alias netshoot='docker run --rm -it --name netshoot nicolaka/netshoot'
+alias testssl.sh='podman run --rm -it docker.io/drwetter/testssl.sh'
+
 
