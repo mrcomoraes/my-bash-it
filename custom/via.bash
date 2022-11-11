@@ -2,6 +2,7 @@ function via_ocp4_exibir_hpa() {
   if [ -z "$1" ]
   then
     echo "Está faltando parâmetro do namespace."
+    return 1
   elif [ "$2" == "-m" ]
   then
     while true
