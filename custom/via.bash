@@ -3,18 +3,27 @@ function via_ocp4_exibir_hpa() {
   then
     echo "Está faltando parâmetro do namespace."
     return 1
-  elif [ "$2" == "-m" ]
+  fi
+  for op in "$@"; do
+    if [ "$op" == "-m" ]; then
+      MONITORING=true
+    else
+      PROJECT="$op"
+    fi
+  done
+
+  if [ "$MONITORING" == "true" ]
   then
     while true
     do
-      echo "Monitoramento HPA - $1"
-      oc get hpa -n "$1" --no-headers | awk -v date="$(date "+%d/%m/%Y - %T")" '{ if($6>$4) print date,"\tMinimo: ",$4,"\tMaximo: ",$5,"\tAtual: "$6,"\tPorcentagem: ",$3,"\tDeployment: ",$1}'
+      echo "Monitoramento HPA - $PROJECT"
+      oc get hpa -n "$PROJECT" --no-headers | awk -v date="$(date "+%d/%m/%Y - %T")" '{ if($6>$4) print date,"\tMinimo: ",$4,"\tMaximo: ",$5,"\tAtual: "$6,"\tPorcentagem: ",$3,"\tDeployment: ",$1}'
       echo -e "\n"
       sleep 30
     done
   else
-    echo "Monitoramento HPA - $1"
-    oc get hpa -n "$1" --no-headers | awk -v date="$(date "+%d/%m/%Y - %T")" '{ if($6>$4) print date,"\tMinimo: ",$4,"\tMaximo: ",$5,"\tAtual: "$6,"\tPorcentagem: ",$3,"\tDeployment: ",$1}'
+    echo "Monitoramento HPA - $PROJECT"
+    oc get hpa -n "$PROJECT" --no-headers | awk -v date="$(date "+%d/%m/%Y - %T")" '{ if($6>$4) print date,"\tMinimo: ",$4,"\tMaximo: ",$5,"\tAtual: "$6,"\tPorcentagem: ",$3,"\tDeployment: ",$1}'
   fi
 }
 
