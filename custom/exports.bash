@@ -10,5 +10,5 @@ export PROMPT_COMMAND='history -a'
 
 ### Kubernetes
 export KUBE_PS1_SYMBOL_ENABLE=false
-export KUBE_EDITOR='code -n -w'
+export KUBE_EDITOR='code -w'
 
