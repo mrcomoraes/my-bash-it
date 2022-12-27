@@ -26,7 +26,7 @@ done
 case $1 in
   download)
     git pull || exit 1
-    rsync -vurtp --exclude=example.bash custom/ $dir_bash_it/custom/
+    rsync -vurtp --del --exclude=example.bash custom/ $dir_bash_it/custom/
     rsync -vutp custom.completion.bash $dir_bash_it/completion/custom.completion.bash
     rsync -vutp custom.aliases.bash $dir_bash_it/aliases/custom.aliases.bash
     rsync -vurtp profiles/ $dir_bash_it/profiles/
@@ -34,7 +34,7 @@ case $1 in
   ;;
 
   upload)
-    rsync -vurtp --exclude=example.bash $dir_bash_it/custom/ custom/
+    rsync -vurtp --del --exclude=example.bash $dir_bash_it/custom/ custom/
     rsync -vutp $dir_bash_it/completion/custom.completion.bash custom.completion.bash
     rsync -vutp $dir_bash_it/aliases/custom.aliases.bash custom.aliases.bash
     rsync -vurtp --exclude=default.bash_it $dir_bash_it/profiles/ profiles/
