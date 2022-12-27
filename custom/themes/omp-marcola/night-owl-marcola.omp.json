@@ -84,7 +84,7 @@
           "foreground": "#011627",
           "leading_diamond": "\ue0b6",
           "style": "diamond",
-          "template": "\uf489  {{ .Name }} ",
+          "template": "\uf489 {{ .Name }} ",
           "trailing_diamond": "<transparent,#d6deeb>\ue0b2</>",
           "type": "shell"
         },
@@ -111,7 +111,7 @@
           "foreground": "#337bb6",
           "leading_diamond": "\ue0b2",
           "style": "diamond",
-          "template": "\uFD03 {{ .EnvironmentName }} ",
+          "template": "\uFD03 {{ .Name }} ",
           "trailing_diamond": "<transparent,#ffffff>\ue0b2</>",
           "type": "az"
         },
