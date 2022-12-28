@@ -77,7 +77,6 @@
     },
     {
       "alignment": "right",
-      //"overflow": "break",
       "segments": [
         {
           "background": "#d6deeb",
