@@ -395,7 +395,7 @@
       "type": "prompt"
     }
   ],
-  "console_title_template": "Local Terminal",
+  "console_title_template": "{{.UserName}} in {{.HostName}}",
   "final_space": true,
   "transient_prompt": {
     "background": "transparent",
