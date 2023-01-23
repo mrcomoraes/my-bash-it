@@ -63,7 +63,7 @@ function prompt_command() {
     history -a
 
     #PS1="$(clock_prompt)${virtualenv}$(user_host_prompt)${bold_cyan}\W $(scm_prompt_char_info)${ret_status}→ ${normal}"'
-    PS1="$(clock_prompt)${virtualenv}$(user_host_prompt)${bold_cyan}\W $(scm_prompt_char_info)${awsume_current_profile}$(kube_ps1)${ret_status}→ ${normal}"
+    PS1="$(clock_prompt)${virtualenv}$(user_host_prompt)${bold_cyan}\W$(scm_prompt_char_info)${awsume_current_profile}$(kube_ps1) ${ret_status}→ ${normal}"
 }
 
 safe_append_prompt_command prompt_command
