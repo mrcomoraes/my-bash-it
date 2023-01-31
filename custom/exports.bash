@@ -1,6 +1,6 @@
 # Python e Pyenv
 export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH:$HOME/.local/bin:$HOME/.tfenv/bin"
+export PATH="$PATH:$PYENV_ROOT/bin:$HOME/.local/bin:$HOME/.tfenv/bin:${KREW_ROOT:-$HOME/.krew}/bin"
 eval "$(pyenv init --path)"
 
 # History
