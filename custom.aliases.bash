@@ -30,6 +30,7 @@ alias kctx=kubectx
 alias kns=kubens
 alias kdp='kubectl describe pod'
 alias kgp='kubectl get pod'
+alias kgd='kubectl get deploy'
 
 ### Alias para docker/podman
 alias netshoot='docker run --rm -it --name netshoot nicolaka/netshoot'
