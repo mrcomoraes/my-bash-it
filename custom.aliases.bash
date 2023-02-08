@@ -1,6 +1,7 @@
 ### Alias para o Linux
 alias hf='history | fzf -e'
 alias le='exa'
+alias bat='batcat'
 
 ### Alias para Terraform
 # alias plan='terragrunt plan'
