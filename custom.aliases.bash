@@ -2,6 +2,7 @@
 alias hf='history | fzf -e'
 alias le='exa'
 alias bat='batcat'
+alias t='task'
 
 ### Alias para Terraform
 # alias plan='terragrunt plan'
@@ -29,6 +30,7 @@ alias k=kubectl
 complete -F __start_kubectl k
 alias kctx=kubectx
 alias kns=kubens
+alias kval=kubeval
 alias kdp='kubectl describe pod'
 alias kgp='kubectl get pod'
 alias kgd='kubectl get deploy'
