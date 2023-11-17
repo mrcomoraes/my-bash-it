@@ -1,8 +1,8 @@
 ### Alias para o Linux
 alias hf='history | fzf -e'
-alias le='exa'
+alias ls='exa'
 alias bat='batcat'
-alias t='task'
+#alias t='task'
 
 ### Alias para Terraform
 # alias plan='terragrunt plan'
@@ -36,7 +36,7 @@ alias kgp='kubectl get pod'
 alias kgd='kubectl get deploy'
 
 ### Alias para docker/podman
-alias netshoot='docker run --rm -it --name netshoot nicolaka/netshoot'
+alias netshoot='podman run --rm -it --name netshoot docker.io/nicolaka/netshoot'
 alias testssl.sh='podman run --rm -it docker.io/drwetter/testssl.sh'
 
 
