@@ -111,7 +111,7 @@
           "foreground": "#337bb6",
           "leading_diamond": "\ue0b2",
           "style": "diamond",
-          "template": "\uFD03 {{ .Name }} ",
+          "template": "\uebd8 {{ .Name }} ",
           "trailing_diamond": "<transparent,#ffffff>\ue0b2</>",
           "type": "az"
         },
